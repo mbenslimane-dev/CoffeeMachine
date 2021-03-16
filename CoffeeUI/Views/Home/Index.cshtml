@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model CoffeeUI.Models.Drinks
+
+<div class="container">
+    <div class="col-lg-4">
+        @await Html.PartialAsync("History")
+    </div>
+    <div class="col-lg-8">
+        @await Html.PartialAsync("Form",Model)
+    </div>
+</div>
+
+
+@section Scripts{
+    <script type="text/javascript">
+        $(".image-checkbox").each(function () {
+            if ($(this).find('input[type="checkbox"]').first().attr("checked")) {
+                $(this).addClass('image-checkbox-checked');
+            }
+            else {
+                $(this).removeClass('image-checkbox-checked');
+            }
+        });
+
+        // sync the state to the input
+        $(".image-checkbox").on("click", function (e) {
+
+            $(".image-checkbox").each(function () {
+
+                var $checkbox = $(this).find('input[type="checkbox"]');
+                $(this).removeClass('image-checkbox-checked');
+                $checkbox.prop("checked", false);
+            });
+            $(this).toggleClass('image-checkbox-checked');
+            var $checkbox = $(this).find('input[type="checkbox"]');
+            $checkbox.prop("checked", !$checkbox.prop("checked"))
+
+            e.preventDefault();
+        });
+    </script>
+}

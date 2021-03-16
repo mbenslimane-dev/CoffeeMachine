@@ -1,0 +1,36 @@
+﻿
+@model CoffeeUI.Models.Drinks
+
+<form method="post" action="/toto">
+    <label for="Drink" class="form-label">Drink</label>
+    <div class="row">
+
+        @foreach (var drink in Model.DrinkList)
+        {
+            <div class="col-md-4 nopad text-center">
+                <label class="image-checkbox">
+                    <img class="img-responsive" src="~/images/@drink.Image" />
+                    <input type="checkbox" name="image" value="@drink.Id" />
+                    <i class="fa fa-check hidden"></i>
+                </label>
+            </div>
+        }
+    </div>
+    <div class="row">
+        <br />
+    </div>
+
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="mug" value="true" checked>
+        <label class="form-check-label" for="flexSwitchCheckChecked">Use your own mug</label>
+    </div>
+
+    <div class="row">
+        <br />
+    </div>
+    <div class="row">
+        <button class="btn btn-primary" type="submit">Order</button>
+    </div>
+</form>
+
+

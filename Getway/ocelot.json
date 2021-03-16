@@ -1,0 +1,17 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/mugApi/Mug",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 4257
+        }
+      ],
+      "UpstreamPathTemplate": "/Mug",
+      "UpstreamHttpMethod": [ "GET" ]
+    }
+    
+  ]
+}
